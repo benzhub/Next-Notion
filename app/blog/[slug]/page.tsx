@@ -1,6 +1,5 @@
 import { NotionPage } from "@/app/components/notion";
 import { fetchPageBySlug, getData } from "@/lib/notion";
-
 import { notFound } from "next/navigation";
 
 async function BlogSlugPage({ params }: { params: { slug: string } }) {
