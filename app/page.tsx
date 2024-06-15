@@ -1,14 +1,16 @@
-import { Client } from "@notionhq/client";
-import React from "react";
+import { notion } from "@/lib/notion";
+import { NotionPage } from "./components/notion";
 
- async function Home() {
+const rootPageId = '0636b28296844688bd4eb50ee5b7c09b';
 
-  const notion = new Client({ auth: process.env.NOTION_TOKEN });
-  const pages = await notion.databases.query({ database_id: process.env.NOTION_DATABASE_ID! });
+async function getData(rootPageId: string) {
+  return await notion.getPage(rootPageId);
+}
 
-  console.log(pages);
+async function Home() {
+  const data = await getData(rootPageId);
 
-  return <div>Hi</div>
+  return (<NotionPage recordMap={data} rootPageId={rootPageId} />)  
 }
 
 export default Home;
