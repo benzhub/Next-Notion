@@ -1,5 +1,5 @@
-import { getData, notionApi } from "@/lib/notion";
-import { NotionPage } from "./components/notion";
+import { getData } from "@/lib/notion";
+import { NotionPage } from "../components/notion";
 
 const rootPageId = '0636b28296844688bd4eb50ee5b7c09b';
 
