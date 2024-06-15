@@ -44,7 +44,7 @@ export const NotionPage = ({
       <NotionRenderer
         recordMap={recordMap}
         fullPage={true}
-        darkMode={true}
+        darkMode={false}
         rootPageId={rootPageId}
         previewImages
         components={{
