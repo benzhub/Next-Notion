@@ -37,12 +37,22 @@ export const fetchBlogs = React.cache(() => {
 export const fetchPageBySlug = React.cache((slug: string) => {
   return notion.databases
     .query({
-      database_id: process.env.NOTION_DATABASE_ID!,
+      database_id: process.env.NOTION_DATABASE_ID!,      
       filter: {
-        property: "Slug",
-        rich_text: {
-          equals: slug,
-        },
+        and: [
+          {
+            property: "Slug",
+            rich_text: {
+              equals: slug,
+            },
+          },
+          {
+            property: "Status",
+            status: {
+              equals: "Published",
+            },
+          }
+        ]
       },
     })
     .then((res) => res.results[0] as PageObjectResponse | undefined);
