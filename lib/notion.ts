@@ -1,17 +1,28 @@
 import "server-only";
 
-import { Client } from "@notionhq/client";
 import React from "react";
+import { Client } from "@notionhq/client";
+import { NotionAPI } from 'notion-client'
 import {
   BlockObjectResponse,
   PageObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
+
+export const notionApi = new NotionAPI({
+  activeUser: process.env.NOTION_ACTIVE_USER,
+  authToken: process.env.NOTION_TOKEN_V2
+})
+
 export const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
-export const fetchPages = React.cache(() => {
+export async function getData(rootPageId: string) {
+  return await notionApi.getPage(rootPageId);
+}
+
+export const fetchBlogs = React.cache(() => {
   return notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {

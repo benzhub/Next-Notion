@@ -1,24 +1,15 @@
-import { fetchPageBlocks, fetchPageBySlug, notion } from "@/lib/notion";
-// import bookmarkPlugin from "@notion-render/bookmark-plugin";
-import { NotionRenderer } from "@notion-render/client";
-import hljsPlugin from "@notion-render/hljs-plugin";
+import { NotionPage } from "@/app/components/notion";
+import { fetchPageBySlug, getData } from "@/lib/notion";
+
 import { notFound } from "next/navigation";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+async function BlogSlugPage({ params }: { params: { slug: string } }) {
   const post = await fetchPageBySlug(params.slug);
   if (!post) notFound();
 
+  const data = await getData(post.id);
 
-  const blocks = await fetchPageBlocks(post.id);
-
-  const renderer = new NotionRenderer({
-    client: notion,
-  });
-
-  renderer.use(hljsPlugin({ /* provide the required argument here */ }));
-
-  const html = await renderer.render(...blocks);
-
-
-  return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
+  return <NotionPage recordMap={data} rootPageId={post.id} />;
 }
+
+export default BlogSlugPage;
