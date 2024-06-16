@@ -1,7 +1,7 @@
 import { getData } from "@/lib/notion";
-import { NotionPage } from "../components/notion";
+import { NotionPage } from "../_components/notion";
 
-const rootPageId = '0636b28296844688bd4eb50ee5b7c09b';
+const rootPageId = process.env.HOEM_PAGE_NOTION_ID ?? '';
 
 async function Home() {
   const data = await getData(rootPageId);
