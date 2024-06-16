@@ -1,4 +1,4 @@
-import { NotionPage } from "@/app/components/notion";
+import { NotionPage } from "@/app/_components/notion";
 import { fetchPageBySlug, getData } from "@/lib/notion";
 import { notFound } from "next/navigation";
 
