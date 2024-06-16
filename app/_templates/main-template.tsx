@@ -3,7 +3,7 @@
 import { ReactNode, useState } from "react";
 import { FaBookOpen, FaUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { HiMenuAlt1 } from "react-icons/hi";
 import { TiHome } from "react-icons/ti";
 import SideBar from "../_components/side-bar";
 
@@ -22,12 +22,12 @@ function HomePageTemplate({ children }: { children: ReactNode }) {
             <li>33333</li>
             <li>44444</li>
           </ul>
-          <GiHamburgerMenu size={32} onClick={toggleDropDown} className="cursor-pointer md:hidden"/>
+          <HiMenuAlt1 size={32} onClick={toggleDropDown} className="cursor-pointer md:hidden"/>
         </div>
       </nav>
       <div className={`overflow-y-scroll ${isSidebarOpen ? 'relative' : ''} md:grid md:grid-cols-[1fr_auto]`}>
         <main className="overflow-y-scroll">{children}</main>
-        <div className={`p-4 overflow-y-scroll bg-red-200 ${isSidebarOpen ? '!bg-green-200 absolute md:static top-0 w-full md:w-auto' : 'hidden md:block'}`}>
+        <div className={`p-4 overflow-y-scroll bg-red-200 transition-all duration-400 delay-50 ${isSidebarOpen ? '!bg-green-200 absolute md:static top-0 w-full md:w-auto' : 'w-0 h-0 invisible md:w-auto md:h-auto md:visible'}`}>
             <SideBar />
         </div>
       </div>
