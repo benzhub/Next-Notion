@@ -13,10 +13,10 @@ function HomePageTemplate({ children }: { children: ReactNode }) {
   const toggleDropDown = () => setIsSidebarOpen(prev => !prev);
   return (
     <div className="h-[100dvh] grid grid-rows-[auto_1fr_auto]">
-      <nav className="bg-orange-200 p-4 flex justify-between items-center">
+      <nav className="p-4 flex justify-between items-center border-b-4 border-primary bg-neutral text-slate-300">
         <div className="w-16 h-8 bg-gray-500"></div>
         <div>
-          <ul className="hidden md:flex items-center justify-between gap-4 bg-blue-200 px-4">
+          <ul className="hidden md:flex items-center justify-between gap-4 px-4">
             <li>11111</li>
             <li>22222</li>
             <li>33333</li>
@@ -27,11 +27,11 @@ function HomePageTemplate({ children }: { children: ReactNode }) {
       </nav>
       <div className={`overflow-y-scroll ${isSidebarOpen ? 'relative' : ''} md:grid md:grid-cols-[1fr_auto]`}>
         <main className="overflow-y-scroll">{children}</main>
-        <div className={`p-4 overflow-y-scroll bg-red-200 transition-all duration-400 delay-50 ${isSidebarOpen ? '!bg-green-200 absolute md:static top-0 w-full md:w-auto' : 'w-0 h-0 invisible md:w-auto md:h-auto md:visible'}`}>
+        <div className={`p-4 overflow-y-scroll bg-neutral-content transition-all duration-400 delay-50 ${isSidebarOpen ? '!bg-[#eaeaec] absolute md:static top-0 w-full md:w-auto' : 'w-0 h-0 invisible md:w-auto md:h-auto md:visible'}`}>
             <SideBar />
         </div>
       </div>
-      <footer className="bg-blue-200 px-4 py-2 md:hidden">
+      <footer className="px-4 py-2 md:hidden bg-neutral text-slate-300">
         <ul className="flex items-center justify-between">
             <li className="flex flex-col items-center"><TiHome size={24}/><p className="font-semibold">首頁</p></li>
             <li className="flex flex-col items-center"><FaBookOpen  size={24}/><p className="font-semibold">我的筆記</p></li>

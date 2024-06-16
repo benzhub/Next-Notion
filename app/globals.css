@@ -1,23 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- /* @import '@notion-render/client/sass/theme.scss'; */
+/* @import '@notion-render/client/sass/theme.scss'; */
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  /* scrollbar-width: thin; */
+  /* scrollbar-color: #f4c366 #1c1d1f; */
+  scrollbar-width: none;
+  overscroll-behavior: none;
+  /* touch-action: pan-down; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+:root,
 body {
+  background: theme('colors.neutral-content');
 }
 
 @layer utilities {
@@ -26,6 +22,10 @@ body {
   }
 }
 
-.notion__container .notion-header {
+.notion__container .notion-header{
   display: none !important;
+}
+
+.notion-app {
+  background: theme('colors.neutral-content') !important;
 }
