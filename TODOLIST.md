@@ -2,30 +2,36 @@
 
 TODO:
 1. SEO
- - robot.txt
- - sitemap generate
- - metadata each page
- - favicon
+    - robot.txt
+    - sitemap generate
+    - metadata each page
+    - favicon
 
 2. sidebar
- - recently posts
- - tags 
- - categories
+    - recently posts
+        - ~~layout~~
+        - get from notion api
+    - tags 
+        - ~~layout~~
+        - get from notion api
+    - categories
+        - ~~layout~~
+        - get from notion api
 
 3. main top bar
- - logo
- - chicked style 
+    - logo
+    - chicked style 
 
 4. auto to generate posts daily
- - article
- - thumbnail
- - image in section
+    - article
+    - thumbnail
+    - image in section
 
 5. Google Tag Manage(GTM)
- - Google Analytics
+    - Google Analytics
 
 6. Social Media
- - IG
- - YT
- - Facebook
- - Twitter
+    - IG
+    - YT
+    - Facebook
+    - Twitter
