@@ -5,7 +5,7 @@ import { HiMenuAlt1 } from "react-icons/hi";
 function MainTopBar({ toggleFn }: { toggleFn: () => void }) {
     const pathname = usePathname();
   return (
-    <nav className="px-4 pt-4 flex justify-between items-center border-b-4 border-primary bg-neutral text-slate-300">
+    <nav className="px-4 pt-4 pb-2 md:pb-0 flex justify-between items-center border-b-4 border-primary bg-neutral text-slate-300">
       <div className="w-16 h-8 bg-gray-500 -translate-y-1"></div>
       <div>
         <ul className="hidden md:flex items-center justify-between px-4">
