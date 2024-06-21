@@ -37,17 +37,17 @@ function SideBar() {
         <h4 className="font-bold text-xl text-gray-500">標籤</h4>
         <div className="bg-primary h-[3px] w-full" />
         <ul className="flex flex-wrap gap-2 px-1 py-2">
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer px-4 py-2 bg-black text-white">items</li>
-        </ul>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2 bg-black text-white">items</li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
+        </ul >
       </section>
 
       
