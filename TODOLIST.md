@@ -35,3 +35,7 @@ TODO:
     - YT
     - Facebook
     - Twitter
+
+7. Home Page Layout
+
+8. Pagination
