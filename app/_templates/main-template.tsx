@@ -26,7 +26,7 @@ function HomePageTemplate({ children }: { children: ReactNode }) {
           }`}
         >
           <div className="max-w-[280px] h-[100dvh] mx-auto">
-            <SideBar />
+            <SideBar /> 
           </div>
         </div>
       </div>

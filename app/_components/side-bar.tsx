@@ -1,4 +1,8 @@
+// import { fetchTags } from "@/lib/notion";
+
 function SideBar() {
+  // const tags = await fetchTags();
+  // console.log('tags', tags)
   return (
     <ul className="flex flex-col gap-4">
       <div className="px-2 py-4 w-full">
@@ -8,6 +12,43 @@ function SideBar() {
           className="outline outline-gray-200 p-2 rounded w-full"
         />
       </div>
+
+      <section className="flex flex-col gap-1">
+        <h4 className="font-bold text-xl text-gray-500">標籤</h4>
+        <div className="bg-primary h-[3px] w-full" />
+        <ul className="flex flex-wrap gap-2 px-1 py-2">
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2 bg-black text-white">
+            items
+          </li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">
+            items
+          </li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">
+            items
+          </li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">
+            items
+          </li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">
+            items
+          </li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">
+            items
+          </li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">
+            items
+          </li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">
+            items
+          </li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">
+            items
+          </li>
+          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">
+            items
+          </li>
+        </ul>
+      </section>
 
       <section className="flex flex-col gap-1">
         <h4 className="font-bold text-xl text-gray-500">近期文章</h4>
@@ -32,27 +73,9 @@ function SideBar() {
           <li className="hover:text-primary cursor-pointer">items</li>
         </ul>
       </section>
-
-      <section className="flex flex-col gap-1">
-        <h4 className="font-bold text-xl text-gray-500">標籤</h4>
-        <div className="bg-primary h-[3px] w-full" />
-        <ul className="flex flex-wrap gap-2 px-1 py-2">
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2 bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
-          <li className="rounded hover:text-primary cursor-pointer py-1 px-2  bg-black text-white">items</li>
-        </ul >
-      </section>
-
-      
     </ul>
   );
-}
+};
 
+export const dynamic = "force-dynamic";
 export default SideBar;
