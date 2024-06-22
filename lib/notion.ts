@@ -24,16 +24,29 @@ export async function getData(rootPageId: string) {
 export const fetchTags = cache(async () => {
   const database = await notion.databases.retrieve({
     database_id: process.env.NOTION_DATABASE_ID!,
-  })
+  });
 
-  const tags = database.properties.Tags?.type === 'multi_select' ? database.properties.Tags.multi_select.options : [];
+  const tags =
+    database.properties.Tags?.type === "multi_select"
+      ? database.properties.Tags.multi_select.options
+      : [];
   return tags;
 });
-
 
 export const fetchBlogs = cache(() => {
   return notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
+    page_size: 10,
+    sorts: [
+      {
+        property: "Date",
+        direction: "descending",
+      },
+      {
+        property: "Name",
+        direction: "ascending",
+      },
+    ],
     filter: {
       property: "Status",
       status: {
