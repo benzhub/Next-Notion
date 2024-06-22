@@ -1,12 +1,23 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { useAtom } from "jotai";
+import { ReactNode, useEffect, useState } from "react";
+import BottomBar from "../_components/bottom-bar";
 import MainTopBar from "../_components/main-top-bar";
 import SideBar from "../_components/side-bar";
-import BottomBar from "../_components/bottom-bar";
+import { TagType } from "../_types/tag";
+import { type TagsAtomType, tagsAtom } from "../store/atoms/tags-atom";
 
-function MainTemplateClient({ tags, children }: { tags: any[]; children: ReactNode }) {
+function MainTemplateClient({ tags, children }: { tags: TagType[]; children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // const [_tags, setTags] = useAtom<TagsAtomType>(tagsAtom);
+  const [_tags, setTags] = useAtom<TagsAtomType>(tagsAtom);
+
+  useEffect(() => {
+    setTags({ tags });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const toggleDropDown = () => setIsSidebarOpen((prev) => !prev);
   return (
@@ -18,7 +29,7 @@ function MainTemplateClient({ tags, children }: { tags: any[]; children: ReactNo
         } overflow-y-scroll md:grid md:grid-cols-[1fr_auto]`}
       >
         <main className="overflow-y-scroll">{children}</main>
-        <SideBar tags={tags} isOpen={isSidebarOpen} />
+        <SideBar isOpen={isSidebarOpen} />
       </div>
       <BottomBar />
     </div>

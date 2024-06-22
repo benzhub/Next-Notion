@@ -1,5 +1,3 @@
-// "use client";
-
 import { fetchTags } from "@/lib/notion";
 import { ReactNode } from "react";
 import MainTemplateClient from "./main-template-client";
