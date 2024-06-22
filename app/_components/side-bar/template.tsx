@@ -9,7 +9,7 @@ function SideBarTemplate({
 }) {
   return (
     <div
-      className={`p-4 overflow-y-scroll bg-neutral-content transition-all duration-400 delay-50 ${
+      className={`p-4 h-full overflow-y-scroll bg-neutral-content transition-all duration-400 delay-50 ${
         isOpen
           ? "!bg-[#eaeaec] absolute md:static top-0 w-full md:w-auto"
           : "w-0 h-0 invisible md:w-auto md:h-auto md:visible"

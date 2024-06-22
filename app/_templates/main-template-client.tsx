@@ -6,15 +6,18 @@ import BottomBar from "../_components/bottom-bar";
 import MainTopBar from "../_components/main-top-bar";
 import SideBar from "../_components/side-bar";
 import { TagType } from "../_types/tag";
-import { type TagsAtomType, tagsAtom } from "../store/atoms/tags-atom";
+import { blogsAtom, type BlogsAtomType } from "../store/atoms/blogs-atom";
+import { tagsAtom, type TagsAtomType } from "../store/atoms/tags-atom";
 
-function MainTemplateClient({ tags, children }: { tags: TagType[]; children: ReactNode }) {
+function MainTemplateClient({ blogs, tags, children }: { blogs: any[], tags: TagType[]; children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const [_, setTags] = useAtom<TagsAtomType>(tagsAtom);
+  const [__, setBlogs] = useAtom<BlogsAtomType>(blogsAtom);
 
   useEffect(() => {
     setTags({ list: tags });
+    setBlogs({ list: blogs });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
