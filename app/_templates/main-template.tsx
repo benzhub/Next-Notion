@@ -1,27 +1,14 @@
-"use client";
+// "use client";
 
-import { ReactNode, useState } from "react";
-import MainTopBar from "../_components/main-top-bar";
-import SideBar from "../_components/side-bar";
-import BottomBar from "../_components/bottom-bar";
+import { fetchTags } from "@/lib/notion";
+import { ReactNode } from "react";
+import MainTemplateClient from "./main-template-client";
 
-function MainTemplate({ children }: { children: ReactNode }) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+async function MainTemplate({ children }: { children: ReactNode }) {
+  const tags = await fetchTags();
 
-  const toggleDropDown = () => setIsSidebarOpen((prev) => !prev);
   return (
-    <div className="h-[100dvh] grid grid-rows-[auto_1fr_auto]">
-      <MainTopBar toggleFn={toggleDropDown} />
-      <div
-        className={`overflow-y-scroll ${
-          isSidebarOpen ? "relative" : ""
-        } md:grid md:grid-cols-[1fr_auto]`}
-      >
-        <main className="overflow-y-scroll">{children}</main>
-        <SideBar isOpen={isSidebarOpen} />
-      </div>
-      <BottomBar />
-    </div>
+    <MainTemplateClient tags={tags}>{children}</MainTemplateClient>
   );
 }
 
