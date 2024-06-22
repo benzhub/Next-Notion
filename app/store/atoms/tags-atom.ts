@@ -1,10 +1,11 @@
 import { TagType } from "@/app/_types/tag";
 import { atom } from "jotai";
+import { list } from "postcss";
 
 export type TagsAtomType = {
-  tags: TagType[];
+  list: TagType[]
 };
 
 export const tagsAtom = atom({
-  tags: [],
+  list: [] as TagType[],
 });

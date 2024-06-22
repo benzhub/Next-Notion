@@ -11,11 +11,10 @@ import { type TagsAtomType, tagsAtom } from "../store/atoms/tags-atom";
 function MainTemplateClient({ tags, children }: { tags: TagType[]; children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // const [_tags, setTags] = useAtom<TagsAtomType>(tagsAtom);
-  const [_tags, setTags] = useAtom<TagsAtomType>(tagsAtom);
+  const [_, setTags] = useAtom<TagsAtomType>(tagsAtom);
 
   useEffect(() => {
-    setTags({ tags });
+    setTags({ list: tags });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
