@@ -5,7 +5,7 @@ import MainTopBar from "../_components/main-top-bar";
 import SideBar from "../_components/side-bar";
 import BottomBar from "../_components/bottom-bar";
 
-function HomePageTemplate({ children }: { children: ReactNode }) {
+function MainTemplate({ children }: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleDropDown = () => setIsSidebarOpen((prev) => !prev);
@@ -18,21 +18,11 @@ function HomePageTemplate({ children }: { children: ReactNode }) {
         } md:grid md:grid-cols-[1fr_auto]`}
       >
         <main className="overflow-y-scroll">{children}</main>
-        <div
-          className={`p-4 overflow-y-scroll bg-neutral-content transition-all duration-400 delay-50 ${
-            isSidebarOpen
-              ? "!bg-[#eaeaec] absolute md:static top-0 w-full md:w-auto"
-              : "w-0 h-0 invisible md:w-auto md:h-auto md:visible"
-          }`}
-        >
-          <div className="max-w-[280px] h-[100dvh] mx-auto">
-            <SideBar /> 
-          </div>
-        </div>
+        <SideBar isOpen={isSidebarOpen} />
       </div>
       <BottomBar />
     </div>
   );
 }
 
-export default HomePageTemplate;
+export default MainTemplate;
