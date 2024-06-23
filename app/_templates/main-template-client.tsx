@@ -28,13 +28,11 @@ function MainTemplateClient({ categories, blogs, tags, children }: { categories:
   return (
     <div className="h-[100dvh] grid grid-rows-[auto_1fr_auto]">
       <MainTopBar toggleFn={toggleDropDown} />
-      <div
-        className={`${
-          isSidebarOpen ? "relative" : ""
-        } overflow-y-scroll md:grid md:grid-cols-[1fr_auto]`}
-      >
-        <main className="overflow-y-scroll">{children}</main>
-        <SideBar isOpen={isSidebarOpen} />
+      <div className={`overflow-y-scroll md:grid md:grid-cols-[1fr_auto]${isSidebarOpen ? " relative" : ""}`}>
+        {!isSidebarOpen && <main className="overflow-y-scroll">{children}</main>}
+        <div className={`${isSidebarOpen ? 'visible' : 'invisible h-0'}`}>
+          <SideBar isOpen={isSidebarOpen} />
+        </div>
       </div>
       <BottomBar />
     </div>
