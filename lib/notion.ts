@@ -44,10 +44,11 @@ export const fetchcategories = cache(async () => {
   return categories;
 });
 
-export const fetchBlogs = cache(() => {
+export const fetchBlogs = cache((cursor?: string) => {
   return notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     page_size: 10,
+    start_cursor: cursor ? cursor : undefined,
     sorts: [
       {
         property: "Date",

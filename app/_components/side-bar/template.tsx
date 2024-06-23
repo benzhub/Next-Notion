@@ -15,7 +15,7 @@ function SideBarTemplate({
           : "w-0 h-0 invisible md:w-auto md:h-auto md:visible"
       }`}
     >
-      <div className="max-w-[280px] h-[100dvh] mx-auto">
+      <div className="md:max-w-[240px] lg:max-w-[280px] h-[100dvh] mx-auto">
         <ul className="flex flex-col gap-4">{children}</ul>
       </div>
     </div>
