@@ -36,11 +36,8 @@ export const fetchTags = cache(async () => {
 export const fetchcategories = cache(async () => {
   const database = await notion.databases.retrieve({
     database_id: process.env.NOTION_DATABASE_ID!,
-  });
-  const categories =
-    database.properties.Category?.type === "multi_select"
-      ? database.properties.Category.multi_select.options
-      : [];
+  }) as any;
+  const categories = database.properties.Category.select.options ?? [];
   return categories;
 });
 
