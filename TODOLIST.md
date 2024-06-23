@@ -45,3 +45,5 @@ TODO:
 10. next.js category posts dynamic page
 
 11. notion api response get object type
+
+12. Static Generate
