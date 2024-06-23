@@ -1,29 +1,16 @@
-import { fetchBlogs, getData } from "@/lib/notion";
+import { fetchBlogs } from "@/lib/notion";
 import Link from "next/link";
-import { ReactNode } from "react";
 import { FaRegFolderOpen } from "react-icons/fa";
 import { LuClock } from "react-icons/lu";
-// import { NotionPage } from "../_components/notion";
-
-const rootPageId = process.env.HOEM_PAGE_NOTION_ID ?? "";
-
-function Container({ children }: { children: ReactNode }) {
-  return <div className="md:max-w-4xl mx-auto">{children}</div>;
-}
+import Container from "../_components/container";
 
 async function Home() {
-  const data = await getData(rootPageId);
   const blogs = await fetchBlogs();
-
-  console.log(blogs);
-
-  // return (<NotionPage recordMap={data} rootPageId={rootPageId} />)
   return (
     <div className="p-4">
       <Container>
         <ul className="flex flex-col gap-8">
           {blogs.results.map((blog: any) => {
-            console.log("blog", blog.properties);
             const title = blog.properties.Name?.title[0]?.plain_text;
             const date = blog.properties.Date?.date?.start;
             const tags = blog.properties.Tags?.multi_select;
@@ -70,11 +57,6 @@ async function Home() {
                     </div>
                   </div>
                   <p>{description}</p>
-                  {/* <div className="text-right ">
-                    <button className="py-2 px-4 bg-gray-300/60 hover:text-primary rounded">
-                      閱讀全文
-                    </button>
-                  </div> */}
                 </div>
               </li>
             );
