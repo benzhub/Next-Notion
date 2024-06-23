@@ -10,9 +10,9 @@ function RecnetlyPosts() {
     <section className="flex flex-col gap-1">
       <h4 className="font-bold text-xl text-gray-500">近期文章</h4>
       <div className="bg-primary h-[3px] w-full" />
-      <ul className="flex flex-col gap-2 px-1 py-2">
+      <ul className="flex flex-col gap-2 divide divide-y-2 divide-gray-200">
         {blogs.list.slice(0, 5).map((blog) => (
-          <li key={blog.id} className="hover:text-primary cursor-pointer">
+          <li key={blog.id} className="hover:text-primary cursor-pointer p-2">
             <Link href={`/blog/${blog.properties.Slug.rich_text[0].text.content}`}>{blog.properties.Name.title[0].plain_text}</Link>
           </li>
         ))}
