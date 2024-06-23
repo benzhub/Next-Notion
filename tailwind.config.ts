@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xm': '400px',
+      },
       grayscale: {
         50: "50%",
       },
