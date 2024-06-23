@@ -30,12 +30,12 @@ async function Home() {
                       </h4>
                     </Link>
                     <div className="flex flex-col gap-1 items-start">
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 items-center">
                         <LuClock size={18} />
                         <p>date: {date}</p>
                       </div>
 
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 items-center">
                         <FaRegFolderOpen size={18} />
                         <p>{tags.map((tag: any) => tag.name).join(", ")}</p>
                       </div>
