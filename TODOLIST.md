@@ -36,10 +36,12 @@ TODO:
     - Facebook
     - Twitter
 
-7. Home Page Layout
+7. ~~Home Page Layout~~
 
 8. Pagination
 
 9. next.js tag posts dynamic page
 
 10. next.js category posts dynamic page
+
+11. notion api response get object type
