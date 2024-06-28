@@ -4,7 +4,7 @@ import { FaRegFolderOpen } from "react-icons/fa";
 import { LuClock } from "react-icons/lu";
 import Container from "../_components/container";
 
-async function Home() {
+export default async function Home() {
   const blogs = await fetchBlogs();
   return (
     <div className="p-4">
@@ -67,4 +67,4 @@ async function Home() {
   );
 }
 
-export default Home;
+export const dynamic = "force-dynamic";
