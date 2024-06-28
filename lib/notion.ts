@@ -21,6 +21,54 @@ export async function getData(rootPageId: string) {
   return await notionApi.getPage(rootPageId);
 }
 
+export const createBlog = cache(async (title: string, description: string) => {
+  const response = await notion.pages.create({
+    parent: {
+      database_id: process.env.NOTION_DATABASE_ID!,
+    },
+    properties: {
+      Name: {
+        title: [
+          {
+            text: {
+              content: title,
+            },
+          },
+        ],
+      },
+      Description: {
+        rich_text: [
+          {
+            text: {
+              content: "",
+            },
+          },
+        ],
+      },
+    },
+    children: [
+      {
+        object: "block",
+        type: "paragraph",
+        paragraph: {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: description,
+                // link: { url: "https://en.wikipedia.org/wiki/Lacinato_kale" },
+              },
+            },
+          ],
+        },
+      },
+    ],
+  });
+  // const pageId = response.id;
+  // console.log("pageId", pageId)
+  return response;
+});
+
 export const fetchTags = cache(async () => {
   const database = await notion.databases.retrieve({
     database_id: process.env.NOTION_DATABASE_ID!,
@@ -34,13 +82,10 @@ export const fetchTags = cache(async () => {
 });
 
 export const fetchcategories = cache(async () => {
-  const database = await notion.databases.retrieve({
+  const database = (await notion.databases.retrieve({
     database_id: process.env.NOTION_DATABASE_ID!,
-  });
-  const categories =
-    database.properties.Category?.type === "multi_select"
-      ? database.properties.Category.multi_select.options
-      : [];
+  })) as any;
+  const categories = database.properties.Category.select.options ?? [];
   return categories;
 });
 
