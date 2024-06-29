@@ -12,7 +12,7 @@ export default async function Home() {
         <ul className="flex flex-col gap-8">
           {blogs.results.map((blog: any) => {
             const title = blog.properties.Name?.title[0]?.plain_text;
-            const date = blog.properties.Date?.date?.start;
+            const date = new Date(blog.properties.Date?.date?.start);
             const tags = blog.properties.Tags?.multi_select;
             const slug = blog.properties.Slug?.rich_text[0]?.plain_text;
             const description =
@@ -32,7 +32,7 @@ export default async function Home() {
                     <div className="flex flex-col gap-1 items-start">
                       <div className="flex gap-2 items-center">
                         <LuClock size={18} />
-                        <p>date: {date}</p>
+                        <p>date: {date.toLocaleDateString()} {date.toLocaleTimeString()}</p>
                       </div>
 
                       <div className="flex gap-2 items-center">
@@ -51,7 +51,7 @@ export default async function Home() {
                     </Link>
                     <div className="flex gap-2 items-center">
                       <LuClock size={18} />
-                      <p>date: {date}</p>
+                      <p>date: {date.toLocaleDateString()} {date.toLocaleTimeString()}</p>
                       <FaRegFolderOpen size={18} />
                       <p>{tags.map((tag: any) => tag.name).join(", ")}</p>
                     </div>
