@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@notionhq/client": "^2.2.15",
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0-rc.12",
     "jotai": "^2.8.3",
     "next": "14.2.4",
+    "node-html-parser": "^6.1.13",
     "notion-client": "^6.16.0",
     "notion-types": "^6.16.0",
     "notion-utils": "^6.16.0",
