@@ -3,7 +3,7 @@ import PostCard from "@/app/_components/post-card";
 import { fetchBlogs } from "@/lib/notion";
 import Link from "next/link";
 
-export default async function Home({params: { cursor }}: {params: { cursor: string }}) {
+export default async function HomePage({params: { cursor }}: {params: { cursor: string }}) {
   const blogs = await fetchBlogs(cursor);
   const nextPage = blogs.next_cursor;
   return (
@@ -28,15 +28,15 @@ export default async function Home({params: { cursor }}: {params: { cursor: stri
               />
             );
           })}
+          {nextPage?.includes("-") && (
+            <Link
+              href={`/${nextPage}`}
+              className="mx-auto w-1/2 md:w-1/4 text-center p-2 text-lg bg-red-700 opacity-60 text-white rounded"
+            >
+              Next Page
+            </Link>
+          )}
         </ul>
-        {nextPage?.includes("-") && (
-          <Link
-            href={`/${nextPage}`}
-            className="mx-auto w-1/2 md:w-1/4 text-center p-2 text-lg bg-red-700 opacity-60 text-white rounded"
-          >
-            Next Page
-          </Link>
-        )}
       </Container>
     </div>
   );
