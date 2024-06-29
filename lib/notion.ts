@@ -21,7 +21,7 @@ export async function getData(rootPageId: string) {
   return await notionApi.getPage(rootPageId);
 }
 
-export const createBlog = cache(async (title: string, description: string) => {
+export const createBlog = cache(async (title: string, tag: string, url: string, description: string, content: string) => {
   const response = await notion.pages.create({
     parent: {
       database_id: process.env.NOTION_DATABASE_ID!,
@@ -36,11 +36,42 @@ export const createBlog = cache(async (title: string, description: string) => {
           },
         ],
       },
+      Tags: {
+        multi_select: [
+          {
+            name: tag,
+          },
+        ],
+      },
+      Category: {
+        select: {
+          name: tag,
+        },
+      },
+      Slug: {
+        rich_text: [
+          {
+            text: {
+              content: url,
+            },
+          },
+        ],
+      },
+      Date: {
+        date: {
+          start: new Date().toISOString(),
+        },  
+      },
+      Status: {
+        status: {
+          name: "Published",
+        },
+      },
       Description: {
         rich_text: [
           {
             text: {
-              content: "",
+              content: description,
             },
           },
         ],
@@ -55,7 +86,7 @@ export const createBlog = cache(async (title: string, description: string) => {
             {
               type: "text",
               text: {
-                content: description,
+                content: content,
                 // link: { url: "https://en.wikipedia.org/wiki/Lacinato_kale" },
               },
             },
