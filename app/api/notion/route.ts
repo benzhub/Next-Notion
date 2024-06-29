@@ -6,7 +6,8 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { title, tag, description, content } = body;
-    const response = await createBlog(title, tag, `${tag}-${uuidv4()}`, description, content);
+    const rawTag = tag.toLowerCase().replaceAll('"', '');
+    const response = await createBlog(title, rawTag, `${rawTag}-${uuidv4()}`, description, content);
     return NextResponse.json({ message: response });
   } catch (error) {
     return NextResponse.json(
