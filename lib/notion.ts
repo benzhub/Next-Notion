@@ -177,6 +177,39 @@ export const fetchBlogsByTag = cache((tag?: string, cursor?: string) => {
     }
   });
 });
+export const fetchBlogsByCategory = cache((category?: string, cursor?: string) => {
+  return notion.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID!,
+    page_size: 10,
+    start_cursor: cursor ? cursor : undefined,
+    sorts: [
+      {
+        property: "Date",
+        direction: "descending",
+      },
+      {
+        property: "Name",
+        direction: "ascending",
+      },
+    ],
+    filter: {
+      "and": [
+        {
+          property: "Status",
+          status: {
+            equals: "Published",
+          },
+        },
+        {
+          property: "Category",
+          select: {
+            equals: category ?? "",
+          },
+        }
+      ]
+    }
+  });
+});
 
 export const fetchPageBySlug = cache((slug: string) => {
   return notion.databases

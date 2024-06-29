@@ -1,10 +1,10 @@
 import Container from "@/app/_components/container";
 import PostCard from "@/app/_components/post-card";
-import { fetchBlogsByTag } from "@/lib/notion";
+import { fetchBlogsByCategory } from "@/lib/notion";
 import Link from "next/link";
 
-export default async function TagPage({params: { tag }}: {params: { tag: string, cursor: string}}) {
-  const blogs = await fetchBlogsByTag(decodeURI(tag));
+export default async function CategoryPage({params: { category, cursor }}: {params: { category: string, cursor: string}}) {
+  const blogs = await fetchBlogsByCategory(decodeURI(category), cursor);
   const nextPage = blogs.next_cursor;
   return (
     <div className="p-4">
