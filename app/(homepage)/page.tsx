@@ -21,7 +21,7 @@ export default async function Home() {
               <li key={blog.id} className="flex flex-col xm:flex-row gap-2">
                 <div className="flex justify-start gap-4">
                   <Link href={`/blog/${slug}`}>
-                    <div className="min-w-36 min-h-36 md:w-3/12 lg:w-2/12 bg-gray-400"></div>
+                    <div className="min-w-36 min-h-36 md:w-3/12 lg:w-2/12 bg-gray-400 rounded"></div>
                   </Link>
                   <div className="flex flex-col gap-4 xm:hidden">
                     <Link href={`/blog/${slug}`}>
